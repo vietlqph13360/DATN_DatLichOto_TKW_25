@@ -1,15 +1,20 @@
-import { useState } from 'react'
 import './App.css'
-import Header from './components/Header'
-Header
+import React  from "react"
+import RegisterPage from './Page/RegisterPage'
+import { Route, Routes } from 'react-router-dom'
+import AdminPage from './Page/AdminPage'
+import LoginPage from './Page/LoginPage'
+import PageNotFound from './Page/PageNotFound'
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <h1>Đặt lịch sửa chữa ô tô nhóm TKW_25</h1>
-      <h3>hahahahah</h3>
-      <Header/>
+      <Routes>
+        <Route path='/' element={<AdminPage/>}/>
+        <Route path='/register' element={<RegisterPage/>}/>
+        <Route path='/login' element={<LoginPage/>}/>
+        <Route path='/404' element={<PageNotFound/>}/>
+      </Routes>
     </div>
   )
 }
